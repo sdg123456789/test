@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
+	<style>
+		.box{
+			width: 200px;
+			height: 100px;
+			background-color: #ccc;
+			position:absolute;
+			top: 0;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="http://www.baidu.com">百度</a>
+	<div id="box" class="box">
+		看出我
+	</div>
+</body>
+<script>
+	var objDiv=document.getElementById("box");
+	objDiv.addEventListener("touchstart",function(ev){
+		console.log("点击显示");
+		ev.preventDefault();
+		objDiv.innerHTML=ev.targetTouches.lenght;
+		objDiv.addEventListener("touchmove",function(ev){
+			objDiv.innerHTML=ev.targetTouches.lenght;
+		})
+		objDiv.addEventListener("touchend",function(ev){
+			console.log(ev.changedTouches.lenght);
+		})
+	})
+</script>
+</html>
